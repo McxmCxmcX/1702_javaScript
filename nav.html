@@ -5,6 +5,13 @@
     <title>Title</title>
 </head>
 <body>
-
+<script>
+    console.log(navigator.userAgent);// iPad iPhone Android
+    console.log('match: ' + navigator.userAgent.match(/(android|iphone|ipad)/i))
+    if (navigator.userAgent.match(/(android|iphone|ipad)/i) != null) {
+        location.href = "mobile.html";
+    }
+</script>
+<h1>PC...</h1>
 </body>
 </html>
