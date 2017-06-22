@@ -1,49 +1,52 @@
-@@ -0,0 +1,48 @@
-+<!DOCTYPE html>
-+<html lang="en">
-+<head>
-    +    <meta charset="UTF-8">
-    +    <title>Title</title>
-    +    <script src="js/jquery-3.2.1.js"></script>
-    +    <script>
-    +        $(function () {
-        +            $('tr:even').css('background', '#ffc');
-        +            $('tr:odd').css('background', '#fcc');
-        +        });
-    +    </script>
-    +</head>
-+<body>
-+<table>
-        <tr>
-            <th width="100">A</th>
-            <th width="200">B</th>
-            <th width="300">C</th>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-        </tr>
-    </table>
-+</body>
-+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function checkForm() {
+            var name = document.getElementById('name');
+            if (!/^[\u4e00-\u9fbb]{2,4}$/.test(name.value.trim())) {
+                alert('name...');
+                name.focus();
+                return false;
+            }
+            var password = document.getElementById('øpassword');
+            if (password.value.length < 6) {
+                alert('password...');
+                password.focus();
+                return false
+            }
+            var age = document.getElementById('age');
+            if (!/^\d{2}$/.test(age.value.trim())) {
+                alert('age...');
+                age.focus();
+                return false;
+            }
+            var email = document.getElementById('email');
+            if (!/^[a-z0-9._-]+@[a-z0-9.-]+\.[a-z]{2,6}$/i.test(email.value.trim())) {
+                alert('email...');
+                email.focus();
+                return false;
+            }
+            var dob = document.getElementById('dob');
+            if (!/^\d{4}-\d{2}-\d{2}$/.test(dob.value.trim())) {
+                alert('dob...');
+                dob.focus();
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+<form action="http://bing.com" method="post" onsubmit="return checkForm()">
+    <input id="name" type="text" name="name" placeholder="姓名"> * (中文)<br>
+    <input id="password" type="password" name="password" placeholder="密码"> * (>=6)<br>
+    <input id="age" type="text" name="age" placeholder="年龄"> * (number)<br>
+    <input id="email" type="text" name="email" placeholder="邮件"> * (合法邮箱地址)<br>
+    <input id="dob" type="text" name="dob" placeholder="出生日期"> * (yyyy-MM-dd)<br>
+    <input type="submit" value="注册">
+</form>
+</body>
+</html>
