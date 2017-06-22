@@ -5,14 +5,18 @@
     <title>Title</title>
 </head>
 <body>
-<pre>
-    80 years.
-
-    var dob = '1990-1-1'
-
-
-    xxxxx秒
-</pre>
-1234567 秒。
+<div id="txt"></div>
+<script>
+    var birthday = prompt('input birthday: ', '1990-1-1');
+    var dob = new Date(birthday);
+    var dod = dob.setFullYear(dob.getFullYear() + 80);
+    function test() {
+        var now = new Date();
+        var seconds = Math.round((dod - now.getTime()) / 1000);
+        document.getElementById('txt').innerHTML = seconds + ' 秒。';
+        setTimeout('test()', 500);
+    }
+    test();
+</script>
 </body>
 </html>
